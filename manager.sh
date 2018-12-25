@@ -6,14 +6,15 @@ cyan=`tput setaf 6`
 yellow=`tput setaf 3`
 red=`tput setaf 1`
 reset=`tput sgr0`
-build_type="Release"
+compiler="clang"
+build_type="release"
 
 print_help() {
     echo ""
     echo "${yellow}Available commands:${reset}"
     echo "${cyan}clean${reset}: Cleans the build files"
-    echo "${cyan}run${reset}: Run the game"
-    echo "${cyan}compile [debug|release]${reset}: Compiles the project. (On ${green}release${reset} mode by default.)"
+    echo "${cyan}run [clang-release, ...]${reset}: Run the project. (On ${green}clang-release${reset} mode by default.)"
+    echo "${cyan}compile [clang|gcc] [debug|release]${reset}: Compiles the project. (On ${green}clang-release${reset} mode by default.)"
 
     exit 0
 }
@@ -30,11 +31,39 @@ elif [[ $1 = "clean" ]]; then
 
 elif [[ $1 = "run" ]]; then
     echo "${yellow}Running the game...${reset}"
-    ./build/src/platformer-cpp
+
+    run_type=$2
+    if [[ -z $run_type ]]; then
+        run_type="clang-release"
+    fi
+    ./build/${run_type}/src/platformer-cpp
 
 elif [[ $1 = "compile" ]]; then
+    if [[ $2 = "gcc" ]] || [[ $3 = "gcc" ]]; then
+        compiler="gcc"
+    fi
+
+    if [[ $2 = "clang" ]] || [[ $3 = "clang" ]]; then
+        compiler="clang"
+    fi
+
+    if [[ $2 = "debug" ]] || [[ $3 = "debug" ]]; then
+        build_type="debug"
+    fi
+
+    if [[ $2 = "release" ]] || [[ $3 = "release" ]]; then
+        build_type="release"
+    fi
+
     echo "${yellow}Meson is generating ninja files...${reset}"
-    meson 'build' && cd 'build'
+
+    if [[ $compiler = "clang" ]]; then
+        CC=clang CXX=clang++ meson "build/${compiler}-${build_type}" --buildtype ${build_type}
+    else
+        CC=gcc CXX=g++ meson "build/${compiler}-${build_type}" --buildtype ${build_type}
+    fi
+    cd "build/${compiler}-${build_type}"
     echo "${yellow}Number of CPU cores: ${reset}${green}${cpu_num}${reset}"
     ninja -j${cpu_num}
+    cd ../..
 fi
