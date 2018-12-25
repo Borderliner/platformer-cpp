@@ -4,8 +4,6 @@ project('platformer-cpp', 'cpp',
 
 sfml = dependency('sfml-all')
 
-
-
 subdir('src')
 subdir('test')
 # subdir('lib')
