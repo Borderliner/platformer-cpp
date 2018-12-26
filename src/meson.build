@@ -1,9 +1,22 @@
-sources = [
+subdir('Traits')
+subdir('Containers')
+subdir('Graphics')
+
+runtime_sources = [
     'main.cpp'
 ]
 
-deps = [
-    sfml
+runtime_headers = [
+
 ]
 
-executable('platformer-cpp', sources, dependencies: deps)
+runtime_deps = [
+    containers_dep,
+    gfx_dep,
+]
+
+runtime_includes = [
+    include_directories('.')
+]
+
+executable('platformer.runtime', runtime_sources + runtime_headers, dependencies: runtime_deps, include_directories: runtime_includes)

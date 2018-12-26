@@ -18,7 +18,7 @@ elif get_option('buildtype') == 'release'
     message('Turning on O3 optimization in release mode')
 endif
 
-sfml = dependency('sfml-all')
+sfml_dep = dependency('sfml-all')
 
 subdir('src')
 subdir('test')
