@@ -1,6 +1,11 @@
 #pragma once
 
 namespace Traits {
+
+/**
+ * @brief By inheriting this class, you will remove copying functionality from your class
+ * 
+ */
 class NoCopy {
  public:
     NoCopy() {}

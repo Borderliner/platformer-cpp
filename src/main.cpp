@@ -14,6 +14,8 @@ int main(int argc, char* argv[]) {
     rect.setFillColor(sf::Color::Red);
     rect.setPosition(320.0f, 240.0f);
     scene->add_model(scene->make_model("my-rectangle", rect));
+    // Or
+    // scene->add_model(Containers::Model("my-rectangle", rect));
 
     while (window->is_open()) {
         window->poll_events();

@@ -34,3 +34,23 @@ Containers::Model& Containers::Model::operator=(Model&& other) {
 
     return *this;
 }
+
+std::string Containers::Model::get_name() const {
+    return m_name;
+}
+
+void Containers::Model::set_name(const std::string& name) {
+    if (!name.empty() && name.length() < 255) {
+        m_name = name;
+    } else {
+        std::cerr << "Cannot set model name to \"" << name << "\". It's either empty, or longer than 255 characters." << std::endl;
+    }
+}
+
+const sf::Drawable& Containers::Model::get_model() const {
+    return m_model.get();
+}
+
+void Containers::Model::set_model(sf::Drawable& model) {
+    m_model = model;
+}
