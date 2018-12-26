@@ -10,12 +10,12 @@ int main(int argc, char* argv[]) {
     auto window = std::make_shared<GFX::Window>(1024, 768, "Platformer-C++");
     auto scene = std::make_shared<GFX::Scene>(window);
 
-    sf::RectangleShape rect{sf::Vector2f(128.0f, 128.0f)};
-    rect.setFillColor(sf::Color::Red);
-    rect.setPosition(320.0f, 240.0f);
-    scene->add_model(scene->make_model("my-rectangle", rect));
-    // Or
-    // scene->add_model(Containers::Model("my-rectangle", rect));
+    sf::Texture mushroom_tex;
+    mushroom_tex.loadFromFile("data/assets/sprites/mushroom.png");
+    sf::Sprite mushroom_sprite;
+    mushroom_sprite.setTexture(mushroom_tex);
+
+    scene->add_model(scene->make_model("mushroom", mushroom_sprite));
 
     while (window->is_open()) {
         window->poll_events();
