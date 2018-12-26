@@ -59,6 +59,8 @@ class Window : public Traits::NoCopy, public Traits::NoMove {
      */
     bool is_open();
 
+    void set_fullscreen(bool fullscreen);
+
  private:
     /**
      * @brief Window object
@@ -67,6 +69,7 @@ class Window : public Traits::NoCopy, public Traits::NoMove {
     std::shared_ptr<sf::RenderWindow> m_window;
     unsigned int m_window_width, m_window_height;
     std::string m_window_title;
+    bool m_fullscreen;
 
     /**
      * @brief Saves events in this variable
