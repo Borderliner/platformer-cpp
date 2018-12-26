@@ -15,6 +15,7 @@ print_help() {
     echo "${cyan}clean${reset}: Cleans the build files"
     echo "${cyan}run [clang-release, ...]${reset}: Run the project. (On ${green}clang-release${reset} mode by default.)"
     echo "${cyan}compile [clang|gcc] [debug|release]${reset}: Compiles the project. (On ${green}clang-release${reset} mode by default.)"
+    echo "${cyan}doc${reset}: Creates documentation of the code"
 
     exit 0
 }
@@ -67,4 +68,11 @@ elif [[ $1 = "compile" ]]; then
     echo "${yellow}Number of CPU cores: ${reset}${green}${cpu_num}${reset}"
     ninja -j${cpu_num}
     cd ../..
+
+elif [[ $1 = "doc" ]] || [[ $1 = "docs" ]]; then
+    echo "${yellow}Running Doxygen...${reset}"
+    rm -rf build/doc 2> /dev/null
+    doxygen Doxyfile
+    echo "${green}Successfully created the documentations${reset}"
+    xdg-open build/doc/html/index.html
 fi
