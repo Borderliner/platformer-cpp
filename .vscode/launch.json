@@ -8,12 +8,14 @@
             "name": "clang-release",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/clang-release/src/platformer-cpp",
+            "program": "${workspaceFolder}/build/clang-release/src/platformer.runtime",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": true,
+            "environment": [
+                { "name": "DISPLAY", "value": ":0" }
+            ],
+            "externalConsole": false,
             "MIMode": "lldb",
             "setupCommands": [
                 {
@@ -27,12 +29,14 @@
             "name": "clang-debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/clang-debug/src/platformer-cpp",
+            "program": "${workspaceFolder}/build/clang-debug/src/platformer.runtime",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": true,
+            "environment": [
+                { "name": "DISPLAY", "value": ":0" }
+            ],
+            "externalConsole": false,
             "MIMode": "lldb",
             "setupCommands": [
                 {
@@ -46,12 +50,14 @@
             "name": "gcc-release",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/gcc-release/src/platformer-cpp",
+            "program": "${workspaceFolder}/build/gcc-release/src/platformer.runtime",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": true,
+            "environment": [
+                { "name": "DISPLAY", "value": ":0" }
+            ],
+            "externalConsole": false,
             "MIMode": "gdb",
             "setupCommands": [
                 {
@@ -65,11 +71,13 @@
             "name": "gcc-debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/gcc-debug/src/platformer-cpp",
+            "program": "${workspaceFolder}/build/gcc-debug/src/platformer.runtime",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
-            "environment": [],
+            "environment": [
+                { "name": "DISPLAY", "value": ":0" }
+            ],
             "externalConsole": true,
             "MIMode": "gdb",
             "setupCommands": [
