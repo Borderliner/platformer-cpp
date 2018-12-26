@@ -53,10 +53,12 @@ bool GFX::Window::is_open() {
 void GFX::Window::set_fullscreen(bool fullscreen) {
     // If not already fullscreen, and fullscreen was requested
     if (!m_fullscreen && fullscreen) {
+        m_window->close();
         m_window->create(sf::VideoMode(m_window_width, m_window_height), m_window_title, sf::Style::Fullscreen);
         m_fullscreen = fullscreen;
     // If it's already fullscreen, but requested otherwise
     } else if (m_fullscreen && !fullscreen) {
+        m_window->close();
         m_window->create(sf::VideoMode(m_window_width, m_window_height), m_window_title, sf::Style::Default);
         m_fullscreen = fullscreen;
     } else {
