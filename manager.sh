@@ -30,13 +30,14 @@ elif [[ $1 = "clean" ]]; then
     echo "${green}Successfully cleaned the build folder.${reset}"
 
 elif [[ $1 = "run" ]]; then
+    export DISPLAY=:0
     echo "${yellow}Running the game...${reset}"
 
     run_type=$2
     if [[ -z $run_type ]]; then
         run_type="clang-release"
     fi
-    ./build/${run_type}/src/platformer-cpp
+    ./build/${run_type}/src/platformer.runtime
 
 elif [[ $1 = "compile" ]]; then
     if [[ $2 = "gcc" ]] || [[ $3 = "gcc" ]]; then
