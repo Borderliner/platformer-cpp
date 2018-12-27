@@ -38,7 +38,7 @@ elif [[ $1 = "run" ]]; then
     if [[ -z $run_type ]]; then
         run_type="clang-release"
     fi
-    ./build/${run_type}/src/platformer.runtime
+    ./build/${run_type}/meson-out/platformer.runtime
 
 elif [[ $1 = "compile" ]]; then
     if [[ $2 = "gcc" ]] || [[ $3 = "gcc" ]]; then
@@ -60,9 +60,9 @@ elif [[ $1 = "compile" ]]; then
     echo "${yellow}Meson is generating ninja files...${reset}"
 
     if [[ $compiler = "clang" ]]; then
-        CC=clang CXX=clang++ meson "build/${compiler}-${build_type}" --buildtype ${build_type}
+        CC=clang CXX=clang++ meson "build/${compiler}-${build_type}" --buildtype ${build_type} --layout flat
     else
-        CC=gcc CXX=g++ meson "build/${compiler}-${build_type}" --buildtype ${build_type}
+        CC=gcc CXX=g++ meson "build/${compiler}-${build_type}" --buildtype ${build_type} --layout flat
     fi
     cd "build/${compiler}-${build_type}"
     echo "${yellow}Number of CPU cores: ${reset}${green}${cpu_num}${reset}"
