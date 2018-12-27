@@ -73,6 +73,7 @@ class Window : public Traits::NoCopy, public Traits::NoMove {
     std::string m_window_title;
     bool m_fullscreen;
     float m_fps;
+    float m_initial_aspect_ratio;
 
     /**
      * @brief Saves events in this variable
