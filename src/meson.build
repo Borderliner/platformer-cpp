@@ -1,9 +1,9 @@
 subdir('Traits')
 subdir('Containers')
-subdir('Graphics')
+subdir('Engine')
 
 runtime_sources = [
-    'main.cpp'
+    'Runtime/main.cpp'
 ]
 
 runtime_headers = [
@@ -12,7 +12,7 @@ runtime_headers = [
 
 runtime_deps = [
     containers_dep,
-    gfx_dep,
+    engine_dep,
 ]
 
 runtime_includes = [

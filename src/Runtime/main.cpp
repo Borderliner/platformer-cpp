@@ -2,13 +2,13 @@
 #include <memory>
 #include <iostream>
 
-#include "Graphics/Window.hpp"
-#include "Graphics/Scene.hpp"
+#include "Engine/Window.hpp"
+#include "Engine/Scene.hpp"
 
 int main(int argc, char* argv[]) {
     
-    auto window = std::make_shared<GFX::Window>(1024, 768, "Platformer-C++");
-    auto scene = std::make_shared<GFX::Scene>(window);
+    auto window = std::make_shared<Engine::Window>(1024, 768, "Platformer-C++");
+    auto scene = std::make_shared<Engine::Scene>(window);
 
     sf::Texture mushroom_tex;
     mushroom_tex.loadFromFile("data/assets/sprites/mushroom.png");
