@@ -6,7 +6,7 @@
 #include "Window.hpp"
 #include "Model.hpp"
 
-namespace GFX {
+namespace Engine {
 
 /**
  * @brief Scene class deals with model management, camera, rendering and holding whatever data is on the scene
@@ -23,16 +23,16 @@ class Scene {
     /**
      * @brief Construct a new Scene object
      * 
-     * @param window The GFX::Window handle
+     * @param window The Engine::Window handle
      */
-    Scene(std::shared_ptr<GFX::Window> window);
+    Scene(std::shared_ptr<Engine::Window> window);
 
     /**
      * @brief Set the window
      * 
-     * @param window a GFX::Window pointer
+     * @param window a Engine::Window pointer
      */
-    void set_window(std::shared_ptr<GFX::Window> window);
+    void set_window(std::shared_ptr<Engine::Window> window);
 
     /**
      * @brief This is the main rendering loop. It calls pre_frame(), on_frame(), and post_frame() respectively.
@@ -96,17 +96,22 @@ class Scene {
      */
     Containers::Model make_model(const std::string& name, const sf::Drawable& drawable);
  private:
+    sf::Time get_elapsed_time();
+    void restart_clock();
 
     /**
      * @brief Associated Window
      * 
      */
-    std::shared_ptr<GFX::Window> m_window;
+    std::shared_ptr<Engine::Window> m_window;
 
     /**
      * @brief A vector containing all models in game
      * 
      */
     std::vector<std::shared_ptr<Containers::Model> > m_models;
+    sf::Clock m_clock;
+    sf::Time m_elapsed_time;
+    float m_frame_time;
 };
-}  // namespace GFX
+}  // namespace Engine

@@ -1,22 +1,28 @@
 #include "Scene.hpp"
 
-GFX::Scene::Scene() {}
-
-GFX::Scene::Scene(std::shared_ptr<GFX::Window> window) {
-    m_window = window;
+Engine::Scene::Scene() {
+    // If not specified, set it to 60.0
+    m_frame_time = 1.0 / 60.0;
 }
 
-void GFX::Scene::set_window(std::shared_ptr<GFX::Window> window) {
+Engine::Scene::Scene(std::shared_ptr<Engine::Window> window) {
     m_window = window;
+    m_frame_time = 1.0 / m_window->get_fps();
 }
 
-void GFX::Scene::render() {
+void Engine::Scene::set_window(std::shared_ptr<Engine::Window> window) {
+    m_window = window;
+    m_frame_time = 1.0 / m_window->get_fps();
+}
+
+void Engine::Scene::render() {
     pre_frame();
     on_frame();
     post_frame();
+    restart_clock();
 }
 
-void GFX::Scene::pre_frame() {
+void Engine::Scene::pre_frame() {
     m_window->get_window()->setActive(true);
     m_window->get_window()->clear(sf::Color::Black);
 
@@ -29,22 +35,26 @@ void GFX::Scene::pre_frame() {
     }
 }
 
-void GFX::Scene::on_frame() {
+void Engine::Scene::on_frame() {
     // Display everything by swapping the buffers
-    m_window->get_window()->display();
+    if (m_elapsed_time.asSeconds() > m_frame_time) {
+        m_window->get_window()->display();
+
+        m_elapsed_time -= sf::seconds(m_frame_time);
+    }
 }
 
-void GFX::Scene::post_frame() { }
+void Engine::Scene::post_frame() { }
 
-void GFX::Scene::add_model(std::shared_ptr<Containers::Model> model) {
+void Engine::Scene::add_model(std::shared_ptr<Containers::Model> model) {
     m_models.push_back(model);
 }
 
-void GFX::Scene::add_model(Containers::Model model) {
+void Engine::Scene::add_model(Containers::Model model) {
     m_models.push_back(std::make_shared<Containers::Model>(model));
 }
 
-std::shared_ptr<Containers::Model> GFX::Scene::get_model(const std::string& name) {
+std::shared_ptr<Containers::Model> Engine::Scene::get_model(const std::string& name) {
     if (!name.empty()) {
         for (auto& model : m_models) {
             if (model->get_name() == name) {
@@ -60,7 +70,7 @@ std::shared_ptr<Containers::Model> GFX::Scene::get_model(const std::string& name
     }
 }
 
-void GFX::Scene::delete_model(const std::string& name) {
+void Engine::Scene::delete_model(const std::string& name) {
     if (!name.empty()) {
         m_models.erase(
             std::remove_if(
@@ -85,6 +95,14 @@ void GFX::Scene::delete_model(const std::string& name) {
     }
 }
 
-Containers::Model GFX::Scene::make_model(const std::string& name, const sf::Drawable& drawable) {
+Containers::Model Engine::Scene::make_model(const std::string& name, const sf::Drawable& drawable) {
     return Containers::Model{name, drawable};
+}
+
+sf::Time Engine::Scene::get_elapsed_time() {
+    return m_elapsed_time;
+}
+
+void Engine::Scene::restart_clock() {
+    m_elapsed_time += m_clock.restart();
 }

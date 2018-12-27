@@ -9,7 +9,7 @@
 #include "NoCopy.hpp"
 #include "NoMove.hpp"
 
-namespace GFX {
+namespace Engine {
 
 /**
  * @brief A light-weight wrapper around sf::RenderWindow, to handle windowing functionality
@@ -30,7 +30,7 @@ class Window : public Traits::NoCopy, public Traits::NoMove {
      * @param window_height Window height
      * @param window_title Window title
      */
-    Window(unsigned int window_width, unsigned int window_height, const std::string& window_title);
+    Window(unsigned int window_width, unsigned int window_height, const std::string& window_title, float fps = 60.0);
 
     /**
      * @brief Destroy the Window object
@@ -60,6 +60,8 @@ class Window : public Traits::NoCopy, public Traits::NoMove {
     bool is_open();
 
     void set_fullscreen(bool fullscreen);
+    void set_fps(float fps);
+    float get_fps() const;
 
  private:
     /**
@@ -70,6 +72,7 @@ class Window : public Traits::NoCopy, public Traits::NoMove {
     unsigned int m_window_width, m_window_height;
     std::string m_window_title;
     bool m_fullscreen;
+    float m_fps;
 
     /**
      * @brief Saves events in this variable
@@ -78,4 +81,4 @@ class Window : public Traits::NoCopy, public Traits::NoMove {
     sf::Event m_event;
 
 };
-}  // namespace GFX
+}  // namespace Engine
