@@ -18,7 +18,9 @@ elif get_option('buildtype') == 'release'
     message('Turning on O3 optimization in release mode')
 endif
 
-sfml_dep = dependency('sfml-all')
+# Aqcuire all libraries and dependencies
+sfml_dep = dependency('sfml-all')  # SFML 2.4 library
+lua_deps = dependency('lua5.3')
 
 subdir('src')
 subdir('test')
