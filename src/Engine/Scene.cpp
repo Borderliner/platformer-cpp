@@ -26,12 +26,14 @@ void Engine::Scene::pre_frame() {
     m_window->get_window()->setActive(true);
     m_window->get_window()->clear(sf::Color::Black);
 
-    // Loop through all models here.
-    for (auto& model : m_models) {
-        // And call draw() function on everything
-        // Here finally we unpack the sf::Drawable buried deep inside the model
-        // Clean and modern C++17 API, yaaay!
-        m_window->get_window()->draw(model->get_model());
+    if (!m_models.empty()) {
+        // Loop through all models here.
+        for (auto& model : m_models) {
+            // And call draw() function on everything
+            // Here finally we unpack the sf::Drawable buried deep inside the model
+            // Clean and modern C++17 API, yaaay!
+            m_window->get_window()->draw(model->get_model());
+        }
     }
 }
 
@@ -78,7 +80,6 @@ void Engine::Scene::delete_model(const std::string& name) {
                 m_models.end(),
                 [&name](std::shared_ptr<Containers::Model> model) -> bool {
                     if (model->get_name() == name) {
-                        model->set_name("");
                         model.reset();
 
                         // Returning true erases this model from m_models.

@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <functional>
+#include <thread>
 
 #include <sys/types.h>
 #include <dirent.h>
@@ -38,6 +39,7 @@ int main(int argc, char* argv[]) {
     // Read Config file
     Bindings::Json json{"config.json"};
     std::vector<std::string> folders = json.get_json()["scripts_folders"];
+    std::string data_folder = json.get_json()["data_folder"];
     std::vector<std::string> all_files;
     for(auto& each_folder : folders) {
         read_directory(each_folder, [&all_files](const std::string& file_name) {
@@ -59,10 +61,28 @@ int main(int argc, char* argv[]) {
 
     lua_engine.execute();
 
+    std::vector<std::shared_ptr<sf::Texture> > textures_vec;
+    std::vector<std::shared_ptr<sf::Sprite> > sprites_vec;
+
+    for (unsigned int i = 0; i < 100; ++i) { 
+        textures_vec.push_back(std::make_shared<sf::Texture>());
+        textures_vec.back()->loadFromFile(data_folder + "assets/sprites/mushroom.png");
+        sprites_vec.push_back(std::make_shared<sf::Sprite>());
+        sprites_vec.back()->setTexture(*textures_vec[i]);
+        scene->add_model(scene->make_model("mushroom_" + std::to_string(i), *sprites_vec[i]));
+    }
+
+    sf::Clock clock;
+
     while (window->is_open()) {
         window->poll_events();
-
         scene->render();
+
+        if (clock.getElapsedTime().asSeconds() > 3.0) {
+            for (unsigned int i = 0; i < 100; ++i) {
+                scene->delete_model("mushroom_" + std::to_string(i));
+            }
+        }
     }
 
     std::exit(EXIT_SUCCESS);

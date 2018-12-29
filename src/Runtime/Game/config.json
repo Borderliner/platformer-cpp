@@ -2,7 +2,5 @@
   "scripts_folders": [
     "Scripts/"
   ],
-  "other_settings": [
-    "1"
-  ]
+  "data_folder": "Data/"
 }
