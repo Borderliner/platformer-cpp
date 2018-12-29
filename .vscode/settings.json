@@ -36,6 +36,16 @@
         "utility": "cpp",
         "algorithm": "cpp",
         "functional": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "chrono": "cpp",
+        "codecvt": "cpp",
+        "cstdarg": "cpp",
+        "cstddef": "cpp",
+        "cstring": "cpp",
+        "forward_list": "cpp",
+        "filesystem": "cpp",
+        "iomanip": "cpp",
+        "numeric": "cpp",
+        "ratio": "cpp"
     }
 }

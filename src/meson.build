@@ -1,6 +1,7 @@
 subdir('Traits')
 subdir('Containers')
 subdir('Engine')
+subdir('Bindings')
 
 runtime_sources = [
     'Runtime/main.cpp'
@@ -13,6 +14,7 @@ runtime_headers = [
 runtime_deps = [
     containers_dep,
     engine_dep,
+    bindings_dep
 ]
 
 runtime_includes = [

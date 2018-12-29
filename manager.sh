@@ -38,7 +38,7 @@ elif [[ $1 = "run" ]]; then
     if [[ -z $run_type ]]; then
         run_type="clang-release"
     fi
-    ./build/${run_type}/meson-out/platformer.runtime
+    ./build/${run_type}/src/platformer.runtime
 
 elif [[ $1 = "compile" ]]; then
     if [[ $2 = "gcc" ]] || [[ $3 = "gcc" ]]; then
@@ -60,9 +60,9 @@ elif [[ $1 = "compile" ]]; then
     echo "${yellow}Meson is generating ninja files...${reset}"
 
     if [[ $compiler = "clang" ]]; then
-        CC=clang CXX=clang++ meson "build/${compiler}-${build_type}" --buildtype ${build_type} --layout flat
+        CC=clang CXX=clang++ meson "build/${compiler}-${build_type}" --buildtype ${build_type}
     else
-        CC=gcc CXX=g++ meson "build/${compiler}-${build_type}" --buildtype ${build_type} --layout flat
+        CC=gcc CXX=g++ meson "build/${compiler}-${build_type}" --buildtype ${build_type}
     fi
     cd "build/${compiler}-${build_type}"
     echo "${yellow}Number of CPU cores: ${reset}${green}${cpu_num}${reset}"
@@ -75,4 +75,20 @@ elif [[ $1 = "doc" ]] || [[ $1 = "docs" ]]; then
     doxygen Doxyfile
     echo "${green}Successfully created the documentations${reset}"
     xdg-open build/doc/html/index.html
+
+elif [[ $1 = "export" ]]; then
+
+    run_type=$2
+    if [[ -z $run_type ]]; then
+        run_type="clang-release"
+    fi
+
+    echo "${yellow}Trimming the junk...${reset}"
+    mv build/$run_type/src/platformer.runtime build
+    rm -rf build/$run_type/
+    mkdir -p build/$run_type
+    mv build/platformer.runtime build/$run_type
+    cp -r src/Runtime/Game/* build/$run_type/
+    echo "${green}Successfully exported to build/$run_type/ ${reset}"
+
 fi

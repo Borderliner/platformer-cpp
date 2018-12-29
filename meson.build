@@ -3,8 +3,9 @@ project('platformer-cpp', 'cpp',
     license: 'MIT')
 
 cpp_args = [
-    '-std=c++17',
-    '-Wall'
+    '-std=c++1z',
+    '-Wall',
+    
 ]
 
 add_global_arguments(cpp_args, language : 'cpp')
@@ -19,8 +20,9 @@ elif get_option('buildtype') == 'release'
 endif
 
 # Aqcuire all libraries and dependencies
-sfml_dep = dependency('sfml-all')  # SFML 2.4 library
-lua_deps = dependency('lua5.3')
+sfml_dep = dependency('sfml-all')  # SFML 2.4 library, libsfml-dev
+lua_deps = dependency('lua5.3')  # Lua 5.3, liblua5.3-dev
+# nlohmann_json, nlohmann-json-dev
 
 subdir('src')
 subdir('test')

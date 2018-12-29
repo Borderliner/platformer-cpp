@@ -1,20 +1,26 @@
-lua_inc = include_directories('.')
+bindings_inc = include_directories('.')
 
-lua_sources = [
-    'Lua.cpp'
+bindings_sources = [
+    'Lua.cpp',
+    'Json.cpp'
 ]
 
-lua_headers = [
-    'Lua.hpp'
+bindings_headers = [
+    'API.hpp',
+    'Lua.hpp',
+    'Json.hpp'
 ]
 
-lua_deps = [
-    lua_deps
+bindings_deps = [
+    sfml_dep,
+    lua_deps,
+    engine_dep
 ]
 
-lua_includes = [
-    
+bindings_includes = [
+    traits_inc,
+    engine_inc
 ]
 
-lua_lib = static_library('platformer.lua', lua_sources + lua_headers, dependencies: lua_deps, include_directories: lua_includes)
-lua_dep = declare_dependency(link_with: lua_lib, sources: lua_sources + lua_headers, include_directories: lua_includes)
+bindings_lib = static_library('platformer.bindings', bindings_sources + bindings_headers, dependencies: bindings_deps, include_directories: bindings_includes)
+bindings_dep = declare_dependency(link_with: bindings_lib, sources: bindings_sources + bindings_headers, include_directories: bindings_includes)
