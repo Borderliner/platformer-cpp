@@ -91,4 +91,17 @@ elif [[ $1 = "export" ]]; then
     cp -r src/Runtime/Game/* build/$run_type/
     echo "${green}Successfully exported to build/$run_type/ ${reset}"
 
+elif [[ $1 = "memory" ]]; then
+
+    run_type=$2
+    if [[ -z $run_type ]]; then
+        run_type="clang-release"
+    fi
+
+    echo "${yellow}Running valgrind for memory check. Make sure the project is exported.${reset}"
+    cd build/clang-release/
+    valgrind --tool=memcheck --leak-check=yes --leak-resolution=high ./platformer.runtime &> memory.log
+    cd ../..
+    echo "${green}Successfully ran valgrind memory check. See memory.log file which was just created. ${reset}"
+    nano memory.log
 fi

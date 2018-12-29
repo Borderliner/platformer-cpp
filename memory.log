@@ -1,0 +1,287 @@
+==14006== Memcheck, a memory error detector
+==14006== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==14006== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==14006== Command: build/clang-release/platformer.runtime
+==14006== 
+Json could not find file "config.json"
+terminate called after throwing an instance of 'std::domain_error'
+  what():  type must be array, but is null
+==14006== 
+==14006== Process terminating with default action of signal 6 (SIGABRT)
+==14006==    at 0x5CC3E97: raise (raise.c:51)
+==14006==    by 0x5CC5800: abort (abort.c:79)
+==14006==    by 0x57708B6: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==14006==    by 0x5776A05: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==14006==    by 0x5776A40: std::terminate() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==14006==    by 0x5776C73: __cxa_throw (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==14006==    by 0x406879: void nlohmann::detail::from_json<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >, 0>(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&) (in /home/reza/Projects/cpp/platformer-cpp/build/clang-release/platformer.runtime)
+==14006==    by 0x403EB9: main (in /home/reza/Projects/cpp/platformer-cpp/build/clang-release/platformer.runtime)
+==14006== 
+==14006== HEAP SUMMARY:
+==14006==     in use at exit: 7,073,729 bytes in 2,890 blocks
+==14006==   total heap usage: 14,767 allocs, 11,877 frees, 197,251,597 bytes allocated
+==14006== 
+==14006== 80 bytes in 1 blocks are possibly lost in loss record 751 of 1,115
+==14006==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x7BB7D36: ??? (in /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0)
+==14006==    by 0x7BB7F6A: __glDispatchInit (in /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0)
+==14006==    by 0x794B018: ??? (in /usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0)
+==14006==    by 0x4010732: call_init (dl-init.c:72)
+==14006==    by 0x4010732: _dl_init (dl-init.c:119)
+==14006==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==14006== 
+==14006== 80 bytes in 1 blocks are possibly lost in loss record 752 of 1,115
+==14006==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x7BB7D36: ??? (in /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0)
+==14006==    by 0x7BB813B: __glDispatchRegisterStubCallbacks (in /usr/lib/x86_64-linux-gnu/libGLdispatch.so.0.0.0)
+==14006==    by 0x60B640A: ??? (in /usr/lib/x86_64-linux-gnu/libGL.so.1.0.0)
+==14006==    by 0x4010732: call_init (dl-init.c:72)
+==14006==    by 0x4010732: _dl_init (dl-init.c:119)
+==14006==    by 0x40010C9: ??? (in /lib/x86_64-linux-gnu/ld-2.27.so)
+==14006== 
+==14006== 144 bytes in 1 blocks are possibly lost in loss record 821 of 1,115
+==14006==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x577583F: __cxa_allocate_exception (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
+==14006==    by 0x4066A4: void nlohmann::detail::from_json<nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer>, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >, 0>(nlohmann::basic_json<std::map, std::vector, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, bool, long, unsigned long, double, std::allocator, nlohmann::adl_serializer> const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >&) (in /home/reza/Projects/cpp/platformer-cpp/build/clang-release/platformer.runtime)
+==14006==    by 0x403EB9: main (in /home/reza/Projects/cpp/platformer-cpp/build/clang-release/platformer.runtime)
+==14006== 
+==14006== 334 bytes in 2 blocks are possibly lost in loss record 909 of 1,115
+==14006==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392CB2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF0F0: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B305: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B8DD: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA225508: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F0EA8: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F2B2F: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5CB526: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x93327B6: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x93329B2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9365E68: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006== 
+==14006== 334 bytes in 2 blocks are possibly lost in loss record 910 of 1,115
+==14006==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392CB2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF0F0: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B3E9: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B8DD: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA225508: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F0EA8: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F2B2F: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5CB526: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x93327B6: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x93329B2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9365E68: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006== 
+==14006== 334 bytes in 2 blocks are possibly lost in loss record 911 of 1,115
+==14006==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392CB2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF0F0: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B40D: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B8DD: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA225508: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F0EA8: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F2B2F: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5CB526: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x93327B6: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x93329B2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9365E68: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006== 
+==14006== 334 bytes in 2 blocks are possibly lost in loss record 912 of 1,115
+==14006==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392CB2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF0F0: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B431: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B8DD: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA225508: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F0EA8: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F2B2F: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5CB526: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x93327B6: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x93329B2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9365E68: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006== 
+==14006== 334 bytes in 2 blocks are possibly lost in loss record 913 of 1,115
+==14006==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392CB2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF0F0: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B455: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B8DD: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA225508: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F0EA8: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F2B2F: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5CB526: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x93327B6: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x93329B2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9365E68: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006== 
+==14006== 334 bytes in 2 blocks are possibly lost in loss record 914 of 1,115
+==14006==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392CB2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF0F0: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B479: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B8DD: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA225508: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F0EA8: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F2B2F: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5CB526: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x93327B6: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x93329B2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9365E68: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006== 
+==14006== 334 bytes in 2 blocks are possibly lost in loss record 915 of 1,115
+==14006==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392CB2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF0F0: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B49D: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B8DD: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA225508: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F0EA8: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F2B2F: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5CB526: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x93327B6: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x93329B2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9365E68: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006== 
+==14006== 334 bytes in 2 blocks are possibly lost in loss record 916 of 1,115
+==14006==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392CB2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF0F0: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B4C1: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B8DD: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA225508: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F0EA8: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F2B2F: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5CB526: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x93327B6: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x93329B2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9365E68: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006== 
+==14006== 334 bytes in 2 blocks are possibly lost in loss record 917 of 1,115
+==14006==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392CB2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF0F0: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B4E5: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B8DD: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA225508: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F0EA8: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F2B2F: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5CB526: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x93327B6: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x93329B2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9365E68: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006== 
+==14006== 622 bytes in 2 blocks are possibly lost in loss record 993 of 1,115
+==14006==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392CB2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF0F0: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B3C5: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B8DD: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA225508: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F0EA8: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F2B2F: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5CB526: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x93327B6: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x93329B2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9365E68: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006== 
+==14006== 1,198 bytes in 2 blocks are possibly lost in loss record 1,026 of 1,115
+==14006==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392CB2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF0F0: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B2E4: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B8DD: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA225508: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F0EA8: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F2B2F: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5CB526: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x93327B6: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x93329B2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9365E68: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006== 
+==14006== 2,254 bytes in 2 blocks are possibly lost in loss record 1,035 of 1,115
+==14006==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392E78: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF086: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA7FFFE5: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA800096: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA2269E6: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F60B8: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5C9CC5: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x9333398: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9361949: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9366F77: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9358605: glXCreateContextAttribsARB (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006== 
+==14006== 9,262 bytes in 2 blocks are possibly lost in loss record 1,072 of 1,115
+==14006==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392CB2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF0F0: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B2C3: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B8DD: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA225508: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F0EA8: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F2B2F: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5CB526: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x93327B6: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x93329B2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9365E68: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006== 
+==14006== 9,262 bytes in 2 blocks are possibly lost in loss record 1,073 of 1,115
+==14006==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392CB2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF0F0: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B509: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B8DD: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA225508: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F0EA8: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F2B2F: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5CB526: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x93327B6: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x93329B2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9365E68: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006== 
+==14006== 23,408 bytes in 16 blocks are possibly lost in loss record 1,094 of 1,115
+==14006==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392CB2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF0F0: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B37C: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA37B8DD: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA225508: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F0EA8: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5F2B2F: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA5CB526: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x93327B6: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x93329B2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9365E68: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006== 
+==14006== 307,279 bytes in 1 blocks are possibly lost in loss record 1,112 of 1,115
+==14006==    at 0x4C31B25: calloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==14006==    by 0x9392CB2: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0xA5DF0F0: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0xA233390: ??? (in /usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.415.25)
+==14006==    by 0x9361BA0: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9369478: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x9330039: ??? (in /usr/lib/x86_64-linux-gnu/libGLX_nvidia.so.415.25)
+==14006==    by 0x40106EB: call_init (dl-init.c:58)
+==14006==    by 0x40106EB: _dl_init (dl-init.c:119)
+==14006==    by 0x40151FE: dl_open_worker (dl-open.c:522)
+==14006==    by 0x5DEC2DE: _dl_catch_exception (dl-error-skeleton.c:196)
+==14006==    by 0x40147C9: _dl_open (dl-open.c:605)
+==14006==    by 0x7744F95: dlopen_doit (dlopen.c:66)
+==14006== 
+==14006== LEAK SUMMARY:
+==14006==    definitely lost: 0 bytes in 0 blocks
+==14006==    indirectly lost: 0 bytes in 0 blocks
+==14006==      possibly lost: 356,595 bytes in 48 blocks
+==14006==    still reachable: 6,717,134 bytes in 2,842 blocks
+==14006==                       of which reachable via heuristic:
+==14006==                         stdstring          : 56 bytes in 1 blocks
+==14006==                         newarray           : 16 bytes in 1 blocks
+==14006==                         multipleinheritance: 104 bytes in 1 blocks
+==14006==         suppressed: 0 bytes in 0 blocks
+==14006== Reachable blocks (those to which a pointer was found) are not shown.
+==14006== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==14006== 
+==14006== For counts of detected and suppressed errors, rerun with: -v
+==14006== ERROR SUMMARY: 19 errors from 19 contexts (suppressed: 0 from 0)
