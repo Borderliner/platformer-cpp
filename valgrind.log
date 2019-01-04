@@ -1,0 +1,24 @@
+==17061== Memcheck, a memory error detector
+==17061== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==17061== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==17061== Command: ./platformer.runtime
+==17061== 
+Hello World!
+Will clean all the images in 10 seconds...
+Done cleaning the models.
+Waiting for 30 secs before exit
+==17061== 
+==17061== HEAP SUMMARY:
+==17061==     in use at exit: 492,722 bytes in 2,220 blocks
+==17061==   total heap usage: 147,829 allocs, 145,609 frees, 4,137,811,402 bytes allocated
+==17061== 
+==17061== LEAK SUMMARY:
+==17061==    definitely lost: 0 bytes in 0 blocks
+==17061==    indirectly lost: 0 bytes in 0 blocks
+==17061==      possibly lost: 0 bytes in 0 blocks
+==17061==    still reachable: 492,722 bytes in 2,220 blocks
+==17061==         suppressed: 0 bytes in 0 blocks
+==17061== Rerun with --leak-check=full to see details of leaked memory
+==17061== 
+==17061== For counts of detected and suppressed errors, rerun with: -v
+==17061== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
