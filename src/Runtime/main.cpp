@@ -73,7 +73,7 @@ int main(int argc, char* argv[]) {
     }
 
     sf::Clock clock;
-    std::cout << "Will clean all the images in 30 seconds..." << std::endl;
+    std::cout << "Will clean all the images in 10 seconds..." << std::endl;
     while (window->is_open()) {
         window->poll_events();
         scene->render();
@@ -85,7 +85,7 @@ int main(int argc, char* argv[]) {
         }
     }
 
-    std::cout << "Waiting for 10 secs before exit" << std::endl;
+    std::cout << "Waiting for 30 secs before exit" << std::endl;
     std::this_thread::sleep_for(std::chrono::duration(std::chrono::seconds(10)));
 
     std::exit(EXIT_SUCCESS);
