@@ -64,26 +64,29 @@ int main(int argc, char* argv[]) {
     std::vector<std::shared_ptr<sf::Texture> > textures_vec;
     std::vector<std::shared_ptr<sf::Sprite> > sprites_vec;
 
-    for (unsigned int i = 0; i < 100; ++i) { 
+    for (unsigned int i = 0; i < 50; ++i) { 
         textures_vec.push_back(std::make_shared<sf::Texture>());
-        textures_vec.back()->loadFromFile(data_folder + "assets/sprites/mushroom.png");
+        textures_vec.back()->loadFromFile(data_folder + "assets/backgrounds/" + std::to_string(i + 1) + ".jpg");
         sprites_vec.push_back(std::make_shared<sf::Sprite>());
         sprites_vec.back()->setTexture(*textures_vec[i]);
-        scene->add_model(scene->make_model("mushroom_" + std::to_string(i), *sprites_vec[i]));
+        scene->add_model(scene->make_model("bkg_" + std::to_string(i + 1), *sprites_vec[i]));
     }
 
     sf::Clock clock;
-
+    std::cout << "Will clean all the images in 30 seconds..." << std::endl;
     while (window->is_open()) {
         window->poll_events();
         scene->render();
 
-        if (clock.getElapsedTime().asSeconds() > 3.0) {
-            for (unsigned int i = 0; i < 100; ++i) {
-                scene->delete_model("mushroom_" + std::to_string(i));
-            }
+        if (clock.getElapsedTime().asSeconds() > 10.0) {
+            scene.reset();
+            std::cout << "Done cleaning the models." << std::endl;
+            break;
         }
     }
+
+    std::cout << "Waiting for 10 secs before exit" << std::endl;
+    std::this_thread::sleep_for(std::chrono::duration(std::chrono::seconds(10)));
 
     std::exit(EXIT_SUCCESS);
 }
